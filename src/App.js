@@ -60,7 +60,7 @@ function App() {
       <MapContainer
         style={{ height: "calc(100vh - 52px)" }}
         center={[13.01516242, 74.96462775]}
-        zoom={17}
+        zoom={11}
         minZoom={0}
         dragging={true}
       >
