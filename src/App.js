@@ -40,6 +40,7 @@ function App() {
   .filter(point => point.speed === 0)
   .map((point, index) => {
     const time = new Date(point.eventGeneratedTime).toLocaleString();
+    const date = new Date(point.eventDate).toLocaleString();
     return (
       <Marker key={index} position={[point.latitude, point.longitude]} icon={customIcon}>
         <Popup>
@@ -47,6 +48,7 @@ function App() {
           <ul>
             <li>Latitude: {point.latitude}</li>
             <li>Longitude: {point.longitude}</li>
+            <li>Captured: {date}</li>
             <li>Time: {time}</li>
           </ul>
         </Popup>
