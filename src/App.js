@@ -8,13 +8,12 @@ import 'leaflet/dist/leaflet.css';
 //icon for stoppages
 const customIcon = L.icon({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', // Default Leaflet icon URL
-  iconSize: [25, 41], // Size of the icon
-  iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
-  popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
+  iconSize: [25, 41], 
+  iconAnchor: [12, 41], 
+  popupAnchor: [1, -34], 
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png', // URL to the marker shadow image
-  shadowSize: [41, 41] // Size of the shadow
+  shadowSize: [41, 41] 
 });
-
 let cursor=0;
 function App() {
   const [currentTrack, setCurrentTrack] = useState({});
@@ -42,6 +41,7 @@ function App() {
     const time = new Date(point.eventGeneratedTime).toLocaleString();
     const date = new Date(point.eventDate).toLocaleString();
     return (
+      
       <Marker key={index} position={[point.latitude, point.longitude]} icon={customIcon}>
         <Popup>
           <p><b>Stoppage {index + 1}</b></p>
@@ -58,7 +58,10 @@ function App() {
   const polylinePoints = geopoints.map(point => [point.latitude, point.longitude]);
 
   return (
+    
     <div>
+      <p style={{ textAlign: "center", backgroundColor: "blue", color: "white", padding: "10px", margin: 0 }}>
+        To see details of stoppages, click on the markers.</p>
       <MapContainer
         style={{ height: "calc(100vh - 52px)" }}
         center={[13.01516242, 74.96462775]}
